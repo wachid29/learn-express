@@ -57,6 +57,10 @@ app.use("/", cors(corsOptions), commentRoutes);
 app.use("/", cors(corsOptions), recipeRoutes);
 app.use("/", cors(corsOptions), authRoutes);
 
+app.use("*", (req, res) => {
+  res.send("sukses");
+});
+
 app.listen(port, () => {
   console.log(`Fighting!!`);
 });
