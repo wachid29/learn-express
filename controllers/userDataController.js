@@ -1,5 +1,5 @@
 const model = require("../model/userDataModel");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 //get userdata pagination
