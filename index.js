@@ -37,7 +37,7 @@ const { options } = require("pg/lib/defaults");
 
 const corsOptions = {
   // origin: "http://localhost:3000"
-  origin: "https://learn-express-wachid.herokuapp.com/",
+  origin: "https://learn-express-wachid.herokuapp.com",
 };
 
 app.use(
