@@ -36,8 +36,8 @@ const { options } = require("pg/lib/defaults");
 // };
 
 const corsOptions = {
-  // origin: "http://localhost:3000"
-  origin: "https://belajar-react-wachid.web.app",
+  origin: "http://localhost:3000",
+  // origin: "https://belajar-react-wachid.web.app",
 };
 
 app.use(
