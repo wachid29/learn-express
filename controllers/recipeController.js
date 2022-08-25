@@ -49,7 +49,7 @@ const getNewestRecipe = async (req, res) => {
 const findRecipe = async (req, res) => {
   //cari berdasarkan title
   try {
-    const { title_recipe } = req.body;
+    const { title_recipe } = req.query;
     const getDataRecipe = await model.findRecipeByTitle(title_recipe);
     if (getDataRecipe?.rowCount) {
       res.status(200).json({
@@ -70,6 +70,7 @@ const addNewRecipe = async (req, res) => {
       const image = `http://localhost:8001/images/${req.file.filename}`;
       const { title_recipe, ingredients, vidio_step, user_id } = req.body;
       //console.log(req.body);
+
       const postRecipe = await model.addedRecipe(
         title_recipe,
         image,
@@ -163,27 +164,10 @@ const commentByRecipeID = async (req, res) => {
     const getDataRecipe = await model.findRecipeByID(id);
     if (getDataRecipe?.rowCount) {
       const getCommentUser = await model.getCommentUser([id]);
-      console.log("a");
       res.status(200).json({
         recipe: getDataRecipe.rows,
         comment: getCommentUser.rows,
         jumlahData: getCommentUser?.rowCount,
-      });
-    } else {
-      res.status(400).send("data tidak ditemukan");
-    }
-  } catch (error) {
-    res.status(400).send("ada yang error");
-  }
-};
-
-const retrieveRecipebyId = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const getDataRecipe = await model.findRecipeByID(id);
-    if (getDataRecipe?.rowCount) {
-      res.status(200).json({
-        recipe: getDataRecipe.rows,
       });
     } else {
       res.status(400).send("data tidak ditemukan");

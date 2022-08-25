@@ -133,7 +133,7 @@ const deletedRecipeByID = (id) => {
 const getCommentUser = (ids) => {
   return new Promise((resolve, reject) => {
     db.query(
-      `SELECT comment.comment, userdata.name FROM comment JOIN userdata 
+      `SELECT comment.comment, userdata.name, userdata.photo_profile FROM comment JOIN userdata 
         ON comment.user_id = userdata.id WHERE recipe_id = ANY ($1)`,
       [ids],
       (error, result) => {

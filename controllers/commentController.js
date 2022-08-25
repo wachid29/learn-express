@@ -55,7 +55,7 @@ const addComment = async (req, res) => {
     const { comment, recipe_id, user_id } = req.body;
     const postComment = await model.addedComment(comment, recipe_id, user_id);
 
-    res.status(200).send("data berhasil di tambah");
+    res.status(200).send("comment berhasil di tambah");
   } catch (error) {
     res.status(400).send("ada yang error");
   }
@@ -105,7 +105,6 @@ const deleteComment = async (req, res) => {
   }
 };
 
-
 module.exports = {
   getComment,
   getCommentPage,
@@ -113,5 +112,4 @@ module.exports = {
   addComment,
   editComment,
   deleteComment,
- 
 };
