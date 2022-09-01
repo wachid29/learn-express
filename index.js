@@ -5,7 +5,7 @@ const port = process.env.PORT || 8001;
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const cors = require("cors");
-const path = require("path");
+const xss = require("xss-clean");
 
 const userDataRoutes = require("./routes/userDataRoutes");
 const commentRoutes = require("./routes/commentRoutes");
@@ -45,6 +45,8 @@ app.use(
     crossOriginResourcePolicy: false,
   })
 );
+
+app.use(xss());
 
 app.use(bodyParser.json());
 // parse application/x-www-form-urlencoded
