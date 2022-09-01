@@ -1,6 +1,7 @@
 const model = require("../model/userDataModel");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
+const cloudinary = require("../middleware/cloudinary");
 
 //get userdata pagination
 const getUsersPage = async (req, res) => {
@@ -178,11 +179,16 @@ const editPhoto = async (req, res) => {
   try {
     const { email } = req.body;
     if (req?.file) {
-      const foto = `http://localhost:8001/profiles/${req.file.filename}`;
+      const uploadImage =
+        (await cloudinary.uploader.upload(req?.file?.path, {
+          folder: "profile-user",
+        })) || null;
+
+      const photo = uploadImage.secure_url;
       const findEmail = await model.findByEmail(email);
 
       if (findEmail?.rowCount) {
-        const editedPhoto = await model.editedPhoto(foto, email);
+        const editedPhoto = await model.editedPhoto(photo, email);
 
         res.status(200).send(`photo profile berhasil di edit`);
       } else {

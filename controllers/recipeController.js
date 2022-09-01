@@ -1,6 +1,5 @@
-const { crossOriginResourcePolicy } = require("helmet");
-const db = require("../db");
 const model = require("../model/recipeModel");
+const cloudinary = require("../middleware/cloudinary");
 
 const getRecipe = async (req, res) => {
   try {
@@ -66,10 +65,13 @@ const findRecipe = async (req, res) => {
 
 const addNewRecipe = async (req, res) => {
   try {
+    const { title_recipe, ingredients, vidio_step, user_id } = req.body;
     if (req?.file) {
-      const image = `http://localhost:8001/images/${req.file.filename}`;
-      const { title_recipe, ingredients, vidio_step, user_id } = req.body;
-      //console.log(req.body);
+      const uploadImage =
+        (await cloudinary.uploader.upload(req?.file?.path, {
+          folder: "recipe-photo",
+        })) || null;
+      const image = uploadImage.secure_url;
 
       const postRecipe = await model.addedRecipe(
         title_recipe,
