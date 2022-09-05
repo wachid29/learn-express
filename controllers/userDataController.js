@@ -164,7 +164,6 @@ const recipeByUser = async (req, res) => {
     const { id } = req.query;
     const getData = await model.findbyID(id);
     if (getData?.rowCount) {
-      const { id } = req.body;
       const getRecipeUser = await model.getRecipeUser(id);
       res.status(200).json({
         user: getData?.rows,
