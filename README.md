@@ -126,7 +126,7 @@ CLOUD_SECRET= lPS5vLhAwqTAOIBBOAao2LIyWk8
 ## REST API and DB
 You can access app in heroku
 </br>
-- [Heroku aplication](https://dashboard.heroku.com/apps/intermediate-backend-pijar)
+- [Heroku aplication](https://intermediate-backend-pijar.herokuapp.com/)
 
 You can download and import Postman 
 </br>
