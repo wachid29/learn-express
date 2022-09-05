@@ -92,7 +92,7 @@ const editComment = async (req, res) => {
 
 const deleteComment = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.query;
     const getDataComment = await model.findCommentbyID(id);
     if (getDataComment?.rowCount) {
       const deletedComment = await model.deletedComment(id);

@@ -128,7 +128,7 @@ const editRecipe = async (req, res) => {
 
 const deleteRecipe = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.query;
     const getDataRecipe = await model.findRecipeByID(id);
     if (getDataRecipe?.rowCount) {
       const deleteRecipe = await model.deletedRecipeByID(id);

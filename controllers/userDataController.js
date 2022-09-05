@@ -35,7 +35,7 @@ const getUsers = async (req, res) => {
 const findNameUsers = async (req, res) => {
   //cari berdasarkan name
   try {
-    const { name } = req.body;
+    const { name } = req.query;
     const getData = await model.findByName(name);
     if (getData?.rowCount) {
       res
@@ -144,7 +144,7 @@ const editUsers = async (req, res) => {
 // delete userdata by id
 const deleteUsers = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.query;
 
     const getData = await model.findbyID(id);
     if (getData?.rowCount) {
