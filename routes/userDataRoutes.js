@@ -22,7 +22,11 @@ Router.delete(
   controller.deleteUsers
 );
 
-Router.post("/recipebyuser", middleware.checkToken, controller.recipeByUser);
+Router.get(
+  "/userdata/recipebyuser",
+  middleware.checkToken,
+  controller.recipeByUser
+);
 
 Router.patch("/userdata/editPhoto", upload.uploadprofile, controller.editPhoto);
 
