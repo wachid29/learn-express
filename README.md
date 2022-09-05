@@ -130,7 +130,7 @@ You can access app in heroku
 
 You can download and import Postman 
 </br>
-- [Download and Import Postman](https://drive.google.com/drive/folders/1aEVxOuCJMe7muxRbRvhZEBqQizUwXXcw?usp=sharing)
+- [Download and Import Postman](https://drive.google.com/drive/folders/1u60K0ldMdwC0zIFM4Nc6aTT2_WiFOPFs?usp=sharing)
 
 You can download and import database
 </br>
