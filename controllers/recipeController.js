@@ -59,6 +59,7 @@ const findRecipe = async (req, res) => {
       res.status(400).send("data tidak ditemukan");
     }
   } catch (error) {
+    console.log(error);
     res.status(400).send("ada yang error");
   }
 };

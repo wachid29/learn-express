@@ -2,6 +2,7 @@ const model = require("../model/userDataModel");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 const cloudinary = require("../middleware/cloudinary");
+const { client_encoding } = require("pg/lib/defaults");
 
 //get userdata pagination
 const getUsersPage = async (req, res) => {
@@ -58,7 +59,7 @@ const addUsers = async (req, res) => {
       const fixemail = email.trim();
       const fixphone_number = phone_number.trim();
 
-      const findEmail = await model.findByEmail(fixemail);
+      const findEmail = await model.findByEmail(email);
 
       if (findEmail?.rowCount) {
         res.status(400).send("email sudah terdaftar");
@@ -72,6 +73,9 @@ const addUsers = async (req, res) => {
             fixemail,
             fixphone_number,
             fixPassword
+            // name,
+            // email,
+            // phone_number
           );
           res.status(200).send("data berhasil di tambah");
         } else {

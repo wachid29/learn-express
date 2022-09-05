@@ -46,8 +46,8 @@ const get5Recipe = () => {
 const findRecipeByTitle = (title_recipe) => {
   return new Promise((resolve, reject) => {
     db.query(
-      `SELECT * FROM recipe WHERE title_recipe LIKE $1`,
-      [`%${title_recipe}%`],
+      `SELECT * FROM recipe WHERE title_recipe ~* $1`,
+      [title_recipe],
       (error, result) => {
         if (error) {
           reject(error);

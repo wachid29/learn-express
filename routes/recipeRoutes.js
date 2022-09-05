@@ -2,7 +2,7 @@ const Router = require("express").Router();
 const controller = require("../controllers/recipeController");
 const upload = require("../middleware/upload");
 const middleware = require("../middleware/auth");
-
+const validation = require("../middleware/validation-middleware");
 Router.get("/recipe", controller.getRecipe);
 
 Router.get("/recipe/pages", controller.getRecipePage);
@@ -19,6 +19,7 @@ Router.post(
   "/recipe/add",
   middleware.checkToken,
   upload.uploadSingle,
+  validation.addRecipe,
   controller.addNewRecipe
 );
 
