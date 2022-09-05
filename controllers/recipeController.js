@@ -16,7 +16,7 @@ const getRecipe = async (req, res) => {
 
 const getRecipePage = async (req, res) => {
   try {
-    const { limit, page } = req.body;
+    const { limit, page } = req.query;
     const getDataRecipe = await model.getRecipePages(limit, page);
     if (getDataRecipe?.rowCount) {
       res.status(200).json({
@@ -143,7 +143,7 @@ const deleteRecipe = async (req, res) => {
 
 const commentByRecipe = async (req, res) => {
   try {
-    const { title_recipe } = req.body;
+    const { title_recipe } = req.query;
     const getDataRecipe = await model.findRecipeByTitle(title_recipe);
     if (getDataRecipe?.rowCount) {
       const ids = getDataRecipe.rows.map((res) => res.id);

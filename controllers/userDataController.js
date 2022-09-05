@@ -7,7 +7,7 @@ const { client_encoding } = require("pg/lib/defaults");
 //get userdata pagination
 const getUsersPage = async (req, res) => {
   try {
-    const { limit, page } = req.body;
+    const { limit, page } = req.query;
     const getData = await model.getUSersPage(limit, page);
     if (getData?.rowCount) {
       res
