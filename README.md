@@ -105,7 +105,7 @@ Create .env file in your root project folder.
 
 ```env
 ENV_MODE = (prod/null)
-DB_URI = postgres://tixmqfemgslrqv:93516ec0359e117cd4169dec0627519101c97406b020cc86961ce1efe678c4e8@ec2-44-210-36-247.compute-1.amazonaws.com:5432/d8l6534kmjt6g8
+DB_URI = postgres://lnafjgfgirvuub:f0e56f8899d135883d37d170b1793c3480000ae32ff751344e8d2372afec88eb@ec2-54-82-205-3.compute-1.amazonaws.com:5432/d1rrgqbsff0tja
 
 PORT = (port localhost)
 USER = 
@@ -130,7 +130,7 @@ You can access app in heroku
 
 You can download and import Postman 
 </br>
-- [Download and Import Postman](https://drive.google.com/drive/folders/1aEVxOuCJMe7muxRbRvhZEBqQizUwXXcw?usp=sharing)
+- [Download and Import Postman](https://drive.google.com/drive/folders/1u60K0ldMdwC0zIFM4Nc6aTT2_WiFOPFs?usp=sharing)
 
 You can download and import database
 </br>
