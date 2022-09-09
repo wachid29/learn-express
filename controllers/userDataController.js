@@ -144,7 +144,7 @@ const editUsers = async (req, res) => {
 // delete userdata by id
 const deleteUsers = async (req, res) => {
   try {
-    const { id } = req.query;
+    const { id } = req.params;
 
     const getData = await model.findbyID(id);
     if (getData?.rowCount) {

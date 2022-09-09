@@ -25,7 +25,7 @@ Router.post(
 
 Router.patch("/recipe/edit", controller.editRecipe);
 
-Router.delete("/recipe/delete", controller.deleteRecipe);
+Router.delete("/recipe/delete/:id", controller.deleteRecipe);
 
 Router.get("/commentbyrecipe", controller.commentByRecipeID);
 

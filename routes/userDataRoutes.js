@@ -17,7 +17,7 @@ Router.post("/userdata/add", validation.register, controller.addUsers);
 Router.patch("/userdata/edit", controller.editUsers);
 // DELETE USER
 Router.delete(
-  "/userdata/delete",
+  "/userdata/delete/:id",
 
   controller.deleteUsers
 );
