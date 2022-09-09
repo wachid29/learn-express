@@ -11,6 +11,6 @@ Router.post("/comment/add", controller.addComment);
 
 Router.patch("/comment/edit", controller.editComment);
 
-Router.delete("/comment/delete", controller.deleteComment);
+Router.delete("/comment/delete/:id", controller.deleteComment);
 
 module.exports = Router;

@@ -16,7 +16,7 @@ const getRecipe = async (req, res) => {
 
 const getRecipePage = async (req, res) => {
   try {
-    const { limit, page } = req.body;
+    const { limit, page } = req.query;
     const getDataRecipe = await model.getRecipePages(limit, page);
     if (getDataRecipe?.rowCount) {
       res.status(200).json({
@@ -59,6 +59,7 @@ const findRecipe = async (req, res) => {
       res.status(400).send("data tidak ditemukan");
     }
   } catch (error) {
+    console.log(error);
     res.status(400).send("ada yang error");
   }
 };
@@ -127,7 +128,7 @@ const editRecipe = async (req, res) => {
 
 const deleteRecipe = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const getDataRecipe = await model.findRecipeByID(id);
     if (getDataRecipe?.rowCount) {
       const deleteRecipe = await model.deletedRecipeByID(id);
@@ -142,7 +143,7 @@ const deleteRecipe = async (req, res) => {
 
 const commentByRecipe = async (req, res) => {
   try {
-    const { title_recipe } = req.body;
+    const { title_recipe } = req.query;
     const getDataRecipe = await model.findRecipeByTitle(title_recipe);
     if (getDataRecipe?.rowCount) {
       const ids = getDataRecipe.rows.map((res) => res.id);

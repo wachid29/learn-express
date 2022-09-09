@@ -2,11 +2,12 @@ const model = require("../model/userDataModel");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 const cloudinary = require("../middleware/cloudinary");
+const { client_encoding } = require("pg/lib/defaults");
 
 //get userdata pagination
 const getUsersPage = async (req, res) => {
   try {
-    const { limit, page } = req.body;
+    const { limit, page } = req.query;
     const getData = await model.getUSersPage(limit, page);
     if (getData?.rowCount) {
       res
@@ -34,7 +35,7 @@ const getUsers = async (req, res) => {
 const findNameUsers = async (req, res) => {
   //cari berdasarkan name
   try {
-    const { name } = req.body;
+    const { name } = req.query;
     const getData = await model.findByName(name);
     if (getData?.rowCount) {
       res
@@ -58,7 +59,7 @@ const addUsers = async (req, res) => {
       const fixemail = email.trim();
       const fixphone_number = phone_number.trim();
 
-      const findEmail = await model.findByEmail(fixemail);
+      const findEmail = await model.findByEmail(email);
 
       if (findEmail?.rowCount) {
         res.status(400).send("email sudah terdaftar");
@@ -72,6 +73,9 @@ const addUsers = async (req, res) => {
             fixemail,
             fixphone_number,
             fixPassword
+            // name,
+            // email,
+            // phone_number
           );
           res.status(200).send("data berhasil di tambah");
         } else {
@@ -140,7 +144,7 @@ const editUsers = async (req, res) => {
 // delete userdata by id
 const deleteUsers = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
 
     const getData = await model.findbyID(id);
     if (getData?.rowCount) {
@@ -157,10 +161,9 @@ const deleteUsers = async (req, res) => {
 
 const recipeByUser = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.query;
     const getData = await model.findbyID(id);
     if (getData?.rowCount) {
-      const { id } = req.body;
       const getRecipeUser = await model.getRecipeUser(id);
       res.status(200).json({
         user: getData?.rows,
