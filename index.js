@@ -35,11 +35,10 @@ const { options } = require("pg/lib/defaults");
 //   },
 // };
 
+const whitelist = ["http://localhost:3000/", "http://localhost:3000"];
 const corsOptions = {
-  origin: "http://localhost:3000/",
-  // origin: "https://belajar-react-wachid.web.app",
+  origin: whitelist,
 };
-
 app.use(
   helmet({
     crossOriginResourcePolicy: false,
