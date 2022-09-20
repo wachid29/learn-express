@@ -11,11 +11,11 @@
     <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-<!--     <a href="https://food-recipe-fandi.herokuapp.com/">View Web Service</a>
+<!--     <a href="https://intermediate-backend-pijar.herokuapp.com/">View Web Service</a>
     ·
-    <a href="https://github.com/fandipras7/foodRecipeApi/issues">Report Bug</a>
+    <a href="https://github.com/wachid29/tugas-intermediate-backend/issues">Report Bug</a>
     ·
-    <a href="https://github.com/fandipras7/foodRecipeApi/issues">Request Feature</a> -->
+    <a href="https://github.com/wachid29/tugas-intermediate-backend/issues">Request Feature</a> -->
   </p>
 
 </div>
@@ -81,12 +81,12 @@ This is an example of how to list things you need to use the software and how to
 
 - Clone the Repo
 ```
-git clone https://github.com/wachid29/learn-express.git
+git clone https://github.com/wachid29/tugas-intermediate-backend.git
 
 ```
 - Go To Folder Repo
 ```
-cd learn-express
+cd tugas-intermediate-backend
 ```
 - Install Module
 ```
