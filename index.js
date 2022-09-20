@@ -38,7 +38,10 @@ const { options } = require("pg/lib/defaults");
 const whitelist = ["http://localhost:3000/", "http://localhost:3000"];
 const corsOptions = {
   origin: whitelist,
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
 };
+
 app.use(
   helmet({
     crossOriginResourcePolicy: false,
