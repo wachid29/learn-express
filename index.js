@@ -20,8 +20,6 @@ const whitelist = [
 
 const corsOptions = {
   origin: whitelist,
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
 };
 
 app.use(
