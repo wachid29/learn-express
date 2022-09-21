@@ -13,29 +13,11 @@ const recipeRoutes = require("./routes/recipeRoutes");
 const authRoutes = require("./routes/authRoutes");
 const { options } = require("pg/lib/defaults");
 
-// var allowlist = ["http://localhost:3000"];
-// const corsOptionsDelegate = function (req, callback) {
-//   let corsOptions;
-//   if (allowlist.indexOf(req.header("Origin")) !== -1) {
-//     corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-//   } else {
-//     corsOptions = { origin: false }; // disable CORS for this request
-//   }
-//   callback(null, corsOptions); // callback expects two parameters: error and options
-// };
+const whitelist = [
+  "https://mama-recipe-rern39vah-wachid29.vercel.app",
+  "http://localhost:3000",
+];
 
-// const whitelist = ["https://www.pertamina.com", "http://localhost:3000"];
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error());
-//     }
-//   },
-// };
-
-const whitelist = ["http://localhost:3000/", "http://localhost:3000"];
 const corsOptions = {
   origin: whitelist,
   credentials: true, //access-control-allow-credentials:true
