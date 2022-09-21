@@ -33,7 +33,8 @@ const getRecipePage = async (req, res) => {
 
 const getNewestRecipe = async (req, res) => {
   try {
-    const getDataRecipe = await model.get5Recipe();
+    const { filter } = req.query;
+    const getDataRecipe = await model.get5Recipe(filter);
     res.status(200).json(
       // recipe:
       getDataRecipe?.rows
@@ -48,8 +49,8 @@ const getNewestRecipe = async (req, res) => {
 const findRecipe = async (req, res) => {
   //cari berdasarkan title
   try {
-    const { title_recipe } = req.query;
-    const getDataRecipe = await model.findRecipeByTitle(title_recipe);
+    const { title_recipe, filter } = req.query;
+    const getDataRecipe = await model.findRecipeByTitle(title_recipe, filter);
     if (getDataRecipe?.rowCount) {
       res.status(200).json({
         recipe: getDataRecipe?.rows,

@@ -7,11 +7,7 @@ Router.get("/recipe", controller.getRecipe);
 
 Router.get("/recipe/pages", controller.getRecipePage);
 
-Router.get(
-  "/recipe/get5data",
-  middleware.checkToken,
-  controller.getNewestRecipe
-);
+Router.get("/recipe/get5data", controller.getNewestRecipe);
 
 Router.get("/recipe/find", controller.findRecipe);
 
