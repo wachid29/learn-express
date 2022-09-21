@@ -14,7 +14,7 @@ const authRoutes = require("./routes/authRoutes");
 const { options } = require("pg/lib/defaults");
 
 const whitelist = [
-  "https://mama-recipe-rern39vah-wachid29.vercel.app/",
+  "http://mama-recipe-rern39vah-wachid29.vercel.app",
   "http://localhost:3000",
 ];
 
